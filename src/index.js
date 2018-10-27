@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved,import/extensions */
 import { ApolloLink } from 'apollo-link';
+import { print } from 'graphql';
 import formatMessage from './formatMessage';
 import logging from './logging';
 
@@ -14,7 +15,7 @@ const loggerLink = new ApolloLink((operation, forward) => {
 
     logging.groupCollapsed(...group);
 
-    logging.log('INIT', operation);
+    logging.log('OPERATION', print(operation));
     logging.log('RESULT', result);
 
     logging.groupEnd(...group);
