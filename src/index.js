@@ -15,7 +15,7 @@ const loggerLink = new ApolloLink((operation, forward) => {
 
     logging.groupCollapsed(...group);
 
-    logging.log('OPERATION', print(operation));
+    logging.log('INIT', print(operation.query));
     logging.log('RESULT', result);
 
     logging.groupEnd(...group);
